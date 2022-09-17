@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --split-left-background: rgba(84, 87, 235, 0.6);
+  --split-right-background: rgb(43, 43, 43, 0.6);
+  --left-btn--hover-color: rgba(84, 87, 235, 0.8);
+  --right-btn--hover-color: rgb(43, 43, 43, 0.9);
+  --hover-width: 75%;
+  --hover-width-other: 25%;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 1.6rem;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: dodgerblue;
+}
+
+.container {
+  background: rgba(0 0 0 /0.4);
+  padding: 4rem 3rem;
+  border-radius: 0.5rem;
+  color: #fff;
+}
+.container h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.form-control {
+  padding: 1rem 0rem 4rem;
+  position: relative;
+  width: 300px;
+  color: #fff;
+}
+.form-control input {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  border-bottom: 0.2rem solid #fff;
+  padding: 1.5rem 0rem;
+  font-size: 1.8rem;
+}
+.form-control input:where(:focus, :valid) {
+  outline: none;
+  border-bottom-color: lightblue;
+}
+
+.form-control label {
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+}
+.form-control label span {
+  display: inline-block;
+  font-size: 1.8rem;
+  transition: 0.3s cubic-bezier(0.075, -0.82, 0.165, 1);
+}
+.form-control input:where(:focus, :valid) + label span {
+  color: lightblue;
+  translate: 0px -20px;
+}
+.container .btn {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  border: 0;
+  border-radius: 5px;
+  background-color: lightblue;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.container .btn:where(:focus, :active) {
+  outline: 0;
+  scale: 0.98;
+}
+.container a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: lightblue;
+}

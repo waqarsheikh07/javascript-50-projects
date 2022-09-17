@@ -1,0 +1,100 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"); */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --border-color-fill: rgb(10, 142, 235);
+  --border-color-empty: #e0e0e0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  background-color: #333;
+  color: #333;
+}
+img {
+  max-width: 100%;
+}
+
+.container {
+  background-color: #fafafa;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 5rem;
+  transform-origin: top left;
+  transition: rotate 0.5s linear;
+}
+
+.container.show-nav {
+  rotate: -20deg;
+}
+
+.circle-container {
+  position: fixed;
+  left: -10rem;
+  top: -10rem;
+}
+.circle {
+  background-color: darksalmon;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  transition: rotate 0.5s linear;
+}
+.circle button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  background: transparent;
+  border: none;
+  height: 100px;
+  font-size: 2rem;
+  transition: rotate 0.5s linear;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+.circle button#open {
+  top: 60%;
+}
+.circle button#close {
+  left: 60%;
+  rotate: 90deg;
+  transform-origin: top left;
+}
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+.content small {
+  color: #aac;
+  font-style: italic;
+}
+.content h1 {
+  margin: 0;
+}
+.content h3 {
+  margin: 30px auto;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  translate: -100%;
+  width: 200px;
+  transition: translate 0.5s ease 0.2s;
+}
+nav ul {
+  list-style-type: none;
+  text-transform: uppercase;
+}
+nav ul li {
+  color: #f5f5f5;
+  margin: 30px;
+}
