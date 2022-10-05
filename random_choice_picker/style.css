@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --split-left-background: rgba(84, 87, 235, 0.6);
+  --split-right-background: rgb(43, 43, 43, 0.6);
+  --left-btn--hover-color: rgba(84, 87, 235, 0.8);
+  --right-btn--hover-color: rgb(43, 43, 43, 0.9);
+  --hover-width: 75%;
+  --hover-width-other: 25%;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--split-left-background);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  background: rgb(0 0 0/0.05);
+
+  width: 100%;
+  text-align: center;
+  padding: 3rem;
+  max-width: 800px;
+  border-radius: 1rem;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+h3 {
+  color: #fff;
+  margin-bottom: 3rem;
+  font-size: 2.8rem;
+}
+#choice-text-area {
+  width: 100%;
+  height: 200px;
+  font-size: 2.4rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+#choice-text-area:focus {
+  outline: none;
+}
+
+#tags {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+#tags .tag {
+  background: orange;
+  padding: 2rem 4rem;
+  border-radius: 100px;
+  font-size: 2.4rem;
+  color: #fff;
+}
+
+.heighlight {
+  background: #000 !important;
+}

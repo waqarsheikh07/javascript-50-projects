@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer Picerk</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: auto;
+        height: 100vh;
+      }
+      form {
+        width: min(100%, 1200px);
+        text-align: center;
+        font-size: 24px;
+        font-family: sans-serif;
+        margin: 0 auto;
+        margin-top: 80px;
+        background: red;
+        padding: 30px 70px;
+      }
+      .delivery-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #show_calender {
+        width: 30px;
+        height: 30px;
+        margin-inline: 10px;
+        cursor: pointer;
+      }
+
+      #show_calender:where(:checked) ~ .devilery_timer {
+        opacity: 1;
+        visibility: visible;
+      }
+      .delivery-label {
+        margin: 10px;
+      }
+      .devilery_timer {
+        width: min(100%, 300px);
+        padding: 10px 20px;
+
+        font-size: 20px;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .devilery_timer:focus,
+      #deliver-instructions:focus {
+        outline: 0;
+
+        box-shadow: 0 1px 6px 1px;
+
+        box-shadow: rgba(246, 71, 71, 0.5) 0px 0px 5px 0px,
+          rgba(246, 71, 71, 0.1) 0px 0px 1px 0px;
+      }
+      #deliver-instructions {
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        height: 300px;
+        padding: 20px;
+      }
+      .deliver-instructions-lable {
+        display: block;
+        text-align-last: left;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="delivery-container">
+        <input
+          type="checkbox"
+          name="show_calender"
+          id="show_calender"
+          checked
+        />
+        <label class="delivery-label show_calender" for="show_calender"
+          >Shedule my delivery</label
+        >
+        <input
+          class="devilery_timer"
+          type="datetime-local"
+          placeholder="Select delivery date"
+          id=""
+          name="attributes[[delivery time]]"
+        />
+      </div>
+
+      <label class="deliver-instructions-lable" for="deliver-instructions"
+        >Deliver Instructions</label
+      >
+      <textarea
+        id="deliver-instructions"
+        name="attributes[Deliver Instructions]"
+      >
+{{ cart.attributes["Deliver Instructions"] }}</textarea
+
+
+
+      >
+
+      <p class="cart-attribute__field">
+        <label></label><br>
+        <input type="radio" name="attributes[]" value="Yes leave the shipment at my door without a signature <br> I assume full responsibility for any loss or spoilage of the product."{% if cart.attributes[""] == "Yes leave the shipment at my door without a signature <br> I assume full responsibility for any loss or spoilage of the product." %} checked{% endif %}> <span>Yes leave the shipment at my door without a signature <br> I assume full responsibility for any loss or spoilage of the product.</span><br>
+        <input type="radio" name="attributes[]" value="No do not leave the shipment at my door without a signature.l assume full responsibility for any loss or spoilage of the product if nobody is available at the delivery address to sign for the package and refrigerate perishable items upon delivery."{% if cart.attributes[""] == "No do not leave the shipment at my door without a signature.l assume full responsibility for any loss or spoilage of the product if nobody is available at the delivery address to sign for the package and refrigerate perishable items upon delivery." %} checked{% endif %}> <span>No do not leave the shipment at my door without a signature.l assume full responsibility for any loss or spoilage of the product if nobody is available at the delivery address to sign for the package and refrigerate perishable items upon delivery.</span><br>
+      </p>
+
+     
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      const config = {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+        minDate: new Date().fp_incr(8),
+
+        disable: [
+          function (date) {
+            // return true to disable
+            return date.getDay() === 0 || date.getDay() === 6;
+          },
+        ],
+        locale: {
+          firstDayOfWeek: 1, // start week on Monday
+        },
+      };
+      flatpickr("input[type='datetime-local']", config);
+    </script>
+  </body>
+</html>

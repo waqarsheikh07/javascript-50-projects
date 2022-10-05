@@ -5,8 +5,15 @@
   box-sizing: border-box;
 }
 :root {
-  --bgColor: #f5cf5c5;
+  --bgColor: #f5cf5c;
+  --split-left-background: rgba(84, 87, 235, 0.6);
+  --split-right-background: #eafbef;
+  --left-btn--hover-color: rgba(84, 87, 235, 0.8);
+  --right-btn--hover-color: rgb(43, 43, 43, 0.9);
+  --hover-width: 75%;
+  --hover-width-other: 25%;
 }
+
 html {
   font-size: 62.5%;
 }
@@ -15,9 +22,96 @@ body {
   font-size: 1.6rem;
   display: flex;
   height: 100vh;
+  flex-direction: column;
   align-items: center;
+  gap: 40px;
+  background-image: linear-gradient(
+    to bottom,
+    var(--split-right-background) 0%,
+    var(--split-right-background) 50%,
+    var(--split-left-background) 50%,
+    var(--split-left-background) 100%
+  );
+
   justify-content: center;
 }
+nav {
+  width: 8rem;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  transition: width 0.6s linear;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+nav.active {
+  width: 35rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  transition: width 0.6s linear;
+}
+nav.active ul {
+  width: 100%;
+}
+
+nav ul li {
+  rotate: y 0deg;
+  opacity: 0;
+  transition: rotate 0.6s linear, opacity 0.6s linear;
+}
+nav.active ul li {
+  rotate: y 360deg;
+  opacity: 1;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 10px;
+  position: relative;
+}
+.icon {
+  background: #fff;
+  border: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+.icon:focus {
+  outline: 0;
+}
+
+.icon .line {
+  width: 20px;
+  height: 2px;
+  background-color: var(--left-btn--hover-color);
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transition: translate 0.6s linear, rotate 0.6s linear;
+}
+.icon .line-2 {
+  top: auto;
+  bottom: 8px;
+}
+nav.active .icon .line-1 {
+  rotate: -762deg;
+  translate: 0px 5.2px;
+}
+nav.active .icon .line-2 {
+  rotate: 762deg;
+  translate: 0px -5.2px;
+}
+
 .search {
   position: relative;
   height: 5.5rem;
@@ -53,4 +147,30 @@ body {
 
 .search.active .btn {
   translate: 44rem;
+}
+
+.container {
+  width: 800px;
+
+  display: flex;
+
+  justify-content: center;
+}
+.key {
+  flex-basis: calc(25% - 60px);
+  margin: 30px;
+  border: 1px solid;
+  padding: 30px 30px;
+  background-color: #eee;
+  position: relative;
+}
+
+.key small {
+  font-size: 2.2rem;
+  position: absolute;
+  left: 0;
+  top: -30px;
+  opacity: 0.7;
+  width: 100%;
+  text-align: center;
 }

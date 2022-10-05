@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --split-left-background: rgba(84, 87, 235, 0.6);
+  --split-right-background: rgb(43, 43, 43, 0.6);
+  --left-btn--hover-color: rgba(84, 87, 235, 0.8);
+  --right-btn--hover-color: rgb(43, 43, 43, 0.9);
+  --hover-width: 75%;
+  --hover-width-other: 25%;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 1.6rem;
+  background-color: #f0f0f0;
+}
+h1 {
+  margin: 50px 0 30px;
+  text-align: center;
+}
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq {
+  border: 1px solid #9fa487;
+  border-radius: 1rem;
+  margin: 20px 0;
+  padding: 40px;
+  position: relative;
+  transition: 0.3s ease;
+  background-color: transparent;
+  isolation: isolate;
+}
+.faq.active {
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.faq.active::before,
+.faq.active::after {
+  content: "\f075";
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-size: 8rem;
+  color: lightgreen;
+  left: 20px;
+  top: 20px;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.faq.active::after {
+  color: lightsalmon;
+  top: -10px;
+  left: -30px;
+  rotate: 180deg;
+}
+.faq .faq-title {
+  margin: 0 35px 0 0;
+  font-size: 2.8rem;
+  cursor: pointer;
+}
+.faq .faq-text {
+  margin: 30px 0 0 0;
+  font-size: 2.4rem;
+  display: none;
+}
+.faq.active .faq-text {
+  display: block;
+}
+.faq button {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  right: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+}
+.faq button:focus {
+  outline: 0;
+}
+.faq.active button {
+  background-color: #9fa4a8;
+}
+.faq.active button .fa-chevron-down {
+  display: none;
+}
+.faq.active button .fa-times {
+  display: block;
+  color: #fff;
+}
+.faq button .fa-times {
+  display: none;
+}
